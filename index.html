@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Plan TikTok 2027 Retail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TikTok+Sans:wght@400;500;700;800&display=swap">
+<style>
+/* Layout: informe largo de una columna (máx. 1080px), secciones numeradas por bloque real (Reporte 2026 / Plan 2027), datos en tarjetas y tablas con scroll propio */
+:root{
+  --bg:#ffffff; --surface:#f5f5f7; --surface-2:#ececf0; --ink:#0b0b0f; --muted:#5a5a66; --line:#e2e2e8;
+  --accent:#fe2c55; --accent-tint:#ffe6ec; --cyan:#25f4ee; --good:#0a8f8a; --bar-muted:#b9b9c4; --bar-soft:#d8d8e0;
+  --dark:#0b0b0f; --on-dark:#ffffff; --on-dark-muted:#c9c9d3;
+  --font-display:"TikTok Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-body:"TikTok Sans", "Helvetica Neue", Arial, sans-serif;
+  --font-data:"TikTok Sans", ui-monospace, "SF Mono", Menlo, monospace;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;margin:0}
+.page{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:0 64px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700}
+p{margin:0;max-width:68ch}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.muted{color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* hero */
+.hero{background:var(--dark);color:var(--on-dark);border-radius:0 0 24px 24px;padding-block:48px 40px;padding-inline:20px;margin-bottom:40px}
+.hero-in{max-width:1040px;margin:0 auto;display:grid;gap:18px}
+.glitch{font-family:var(--font-display);font-weight:800;font-size:clamp(44px,8vw,84px);line-height:1;letter-spacing:-.02em;color:#fff;
+  text-shadow:-3px -3px 0 #25f4ee,3px 3px 0 #fe2c55}
+.hero p{color:var(--on-dark-muted);font-size:18px}
+.hero .meta{display:flex;flex-wrap:wrap;gap:10px}
+.chip{border:1px solid #3a3a46;border-radius:999px;padding:4px 12px;font-size:13px;color:var(--on-dark-muted)}
+nav.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+nav.toc a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;background:#22222a;border-radius:999px;padding:6px 14px}
+nav.toc a:hover{background:#fe2c55}
+
+/* sections */
+section{padding-block:36px;border-top:1px solid var(--line)}
+section.part{border-top:none;padding-block:12px 0}
+.part-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-top:24px}
+.part-head .tag{font-family:var(--font-display);font-weight:800;font-size:15px;background:var(--accent);color:#fff;border-radius:8px;padding:4px 10px}
+.part-head h2{font-size:clamp(30px,4.2vw,44px)}
+.sec-head{display:grid;gap:8px;margin-bottom:22px}
+
+/* kpis */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpi{background:var(--surface);border-radius:14px;padding:16px}
+.kpi b{display:block;font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);white-space:nowrap;font-weight:800;line-height:1.1}
+.kpi span{font-size:13px;color:var(--muted)}
+.kpi.hl{background:var(--accent-tint)} .kpi.hl b{color:var(--accent)}
+
+/* grids & cards */
+.g2{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.g-ins{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:720px){.g-ins{grid-template-columns:1fr}}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--surface);border-radius:16px;padding:20px;min-width:0;display:grid;gap:10px;align-content:start}
+.card.hl{background:var(--accent-tint)}
+.card h3{font-size:18px}
+.card .big{font-family:var(--font-display);font-size:34px;font-weight:800;line-height:1}
+.card .big.red{color:var(--accent)}
+.insight{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.badge{width:34px;height:34px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px;box-shadow:-3px -3px 0 var(--cyan)}
+.what{font-size:13px;font-weight:700;color:var(--good);text-transform:uppercase;letter-spacing:.06em}
+
+/* charts */
+.chart{background:var(--surface);border-radius:16px;padding:18px;min-width:0}
+.chart h3{font-size:16px;margin-bottom:4px}
+.chart .sub{font-size:13px;color:var(--muted);margin-bottom:10px}
+.chart svg{width:100%;height:auto;display:block}
+.chart text{fill:var(--ink);font-family:var(--font-body);font-size:12px}
+.chart text.m{fill:var(--muted)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--muted);margin-bottom:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.f-acc{fill:var(--accent)} .f-mut{fill:var(--bar-muted)} .f-soft{fill:var(--bar-soft)} .f-cyan{fill:var(--cyan)} .f-good{fill:var(--good)}
+.s-line{stroke:var(--line)}
+
+/* tables */
+.tbl{overflow-x:auto;border-radius:14px;border:1px solid var(--line)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:720px}
+th,td{padding:10px 12px;vertical-align:middle;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{vertical-align:bottom!important;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);background:var(--surface)}
+tbody tr:last-child td{border-bottom:none}
+tr.hl td{background:var(--accent-tint)}
+td.wrap,th.wrap{white-space:normal;text-align:left;min-width:150px;vertical-align:middle}
+
+/* funnel */
+.funnel{display:grid;gap:8px}
+.fstep{display:grid;grid-template-columns:150px 1fr 70px;gap:12px;align-items:center;font-size:14px}
+.fbar{height:26px;border-radius:6px;background:var(--accent);min-width:4px}
+.fstep .rate{font-weight:700;color:var(--muted);text-align:right}
+@media (max-width:560px){.fstep{grid-template-columns:110px 1fr 56px}}
+
+/* campaign structure */
+.camp{border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.camp-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center;padding:18px 20px;background:var(--surface)}
+.camp-head .stage{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.camp-head .budget{font-family:var(--font-display);font-weight:800;font-size:22px}
+.tree{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0}
+.lvl{padding:16px 20px;border-top:1px solid var(--line);min-width:0}
+.lvl+.lvl{border-left:1px solid var(--line)}
+@media (max-width:760px){.lvl+.lvl{border-left:none}}
+.lvl h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.lvl ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:14px}
+.kpiline{padding:12px 20px;border-top:1px solid var(--line);font-size:14px;background:var(--bg)}
+
+/* mix bar */
+.mix{display:grid;gap:10px}
+.mixrow{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:center}
+.mixbar{display:flex;height:34px;border-radius:8px;overflow:hidden;font-size:12.5px;font-weight:700}
+.mixbar span{display:flex;align-items:center;justify-content:center;white-space:nowrap;overflow:hidden;border-right:2px solid var(--bg)}
+.seg-a{background:var(--bar-muted);color:var(--ink)} .seg-c{background:var(--bar-soft);color:var(--ink)} .seg-v{background:var(--accent);color:#fff} .seg-t{background:var(--cyan);color:#0b0b0f}
+
+/* calendar */
+.cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.q{background:var(--surface);border-radius:16px;padding:18px;display:grid;gap:12px;align-content:start}
+.q.peak{background:var(--accent-tint)}
+.q h3{font-size:26px}
+.q dl{margin:0;display:grid;gap:8px}
+.q dt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.q dd{margin:0;font-size:15px}
+.q dd.test{color:var(--good);font-style:italic}
+.q .rev{justify-self:start;background:var(--ink);color:var(--bg);border-radius:999px;font-size:12px;font-weight:700;padding:4px 12px}
+
+.note{font-size:13px;color:var(--muted)}
+.switch{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;margin-bottom:8px}
+.switch-in{max-width:1040px;margin:0 auto;padding-inline:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.switch button{font:inherit;font-weight:700;font-size:15px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer}
+.switch button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+.switch .hint{font-size:13px;color:var(--muted);margin-left:auto}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.subnav a{font-size:13px;font-weight:600;color:var(--ink);text-decoration:none;background:var(--surface);border-radius:999px;padding:5px 12px}
+@media print{.switch{display:none}.view[hidden]{display:block!important}}
+.callout{background:var(--dark);color:var(--on-dark);border-radius:16px;padding:20px;display:grid;gap:8px}
+.callout b{color:var(--cyan)}
+.steps{counter-reset:s;display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:10px;font-size:15px}
+.steps li::before{content:counter(s);width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
+footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:var(--muted);display:grid;gap:6px}
+
+@media print{
+  .hero{border-radius:0} nav.toc{display:none}
+  section,.camp,.card,.chart,.q{break-inside:avoid}
+  .part{break-before:page}
+  body{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="chip" style="justify-self:start">Para el equipo de Marketing</div>
+    <h1 class="glitch">Plan TikTok 2027</h1>
+    <p>Dos documentos en uno: el análisis de los datos de 2026 y el plan de ejecución 2027 para el equipo de Marketing. Elegí cuál ver con los botones de abajo.</p>
+    <div class="meta">
+      <span class="chip">Retailer · Ventas en tienda, online y crédito</span>
+      <span class="chip">Inversión 2027: USD 592k (+50%)</span>
+      <span class="chip">Datos: últimos 12 meses de la cuenta</span>
+    </div>
+    
+  </div>
+</header>
+<div class="switch"><div class="switch-in" role="tablist" aria-label="Documento">
+  <button id="tab-reporte" role="tab" aria-selected="true" aria-controls="v-reporte" data-view="reporte">Análisis 2026</button>
+  <button id="tab-plan" role="tab" aria-selected="false" aria-controls="v-plan" data-view="plan">Plan 2027</button>
+  <span class="hint">Datos: últimos 12 meses de la cuenta</span>
+</div></div>
+
+<main class="page">
+
+<div class="view" id="v-reporte" role="tabpanel" aria-labelledby="tab-reporte">
+<section class="part" id="reporte">
+  <div class="part-head"><span class="tag">Análisis</span><h2>2026 en datos</h2></div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Resumen del año</span>
+    <h2>USD 395k invertidos y USD 13,1M en ventas atribuidas</h2>
+    <p class="muted">Ventas que la plataforma atribuye a personas que vieron o hicieron clic en un anuncio, en web y en tienda. No son las ventas totales de la empresa.</p>
+  </div>
+  <div class="kpis num">
+    <div class="kpi"><b>USD 395k</b><span>inversión anual</span></div>
+    <div class="kpi hl"><b>USD 13,1M</b><span>ventas atribuidas</span></div>
+    <div class="kpi"><b>33,2</b><span>ROAS total (web + tienda)</span></div>
+    <div class="kpi"><b>89%</b><span>de las ventas, en tienda física</span></div>
+    <div class="kpi"><b>6,8M</b><span>personas alcanzadas</span></div>
+    <div class="kpi"><b>45,2k</b><span>compras atribuidas</span></div>
+    <div class="kpi"><b>36,9k</b><span>leads de financiamiento</span></div>
+    <div class="kpi"><b>USD 8,74</b><span>costo por compra</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Inversión vs. resultado</span>
+    <h2>El catálogo recibe el 22% de la inversión y concentra el 46% de las ventas atribuidas</h2>
+  </div>
+  <div class="g2">
+    <div class="chart">
+      <h3>Participación por campaña</h3>
+      <div class="legend"><span><i style="background:var(--bar-muted)"></i>% de la inversión</span><span><i style="background:var(--accent)"></i>% de las ventas</span></div>
+      <div id="ch-share"></div>
+    </div>
+    <div class="chart">
+      <h3>ROAS por campaña</h3>
+      <div class="legend"><span><i style="background:var(--accent)"></i>Tienda</span><span><i style="background:var(--cyan)"></i>Web</span></div>
+      <div id="ch-roas"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Detalle por campaña</span>
+    <h2>Todos los números en una tabla</h2>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Métrica</th><th>Tiendas</th><th>Marca</th><th>Catálogo</th><th>Financiamiento</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr><td>Objetivo 2026</td><td class="wrap">Engagement y awareness con promos</td><td class="wrap">Awareness always on</td><td class="wrap">Catálogo dinámico</td><td class="wrap">Leads</td><td></td></tr>
+        <tr><td>Inversión</td><td>USD 191,9k</td><td>USD 87,5k</td><td>USD 86,3k</td><td>USD 28,8k</td><td>USD 394,5k</td></tr>
+        <tr><td>Personas alcanzadas</td><td>6,41M</td><td>4,56M</td><td>2,77M</td><td>1,16M</td><td>6,82M</td></tr>
+        <tr><td>Impresiones</td><td>311,4M</td><td>269,3M</td><td>90,9M</td><td>24,3M</td><td>695,9M</td></tr>
+        <tr><td>Frecuencia anual</td><td>49</td><td>59</td><td>33</td><td>21</td><td>102</td></tr>
+        <tr><td>CPM</td><td>USD 0,62</td><td>USD 0,32</td><td>USD 0,95</td><td>USD 1,19</td><td>USD 0,57</td></tr>
+        <tr><td>CTR</td><td>0,79%</td><td>0,24%</td><td>3,06%</td><td>0,73%</td><td>0,87%</td></tr>
+        <tr><td>Clics que llegan a la web</td><td>17%</td><td>12%</td><td>76%</td><td>7%</td><td>43%</td></tr>
+        <tr><td>Compras web</td><td>2.360</td><td>436</td><td>5.901</td><td>82</td><td>8.779</td></tr>
+        <tr><td>Compras en tienda</td><td>14.926</td><td>3.750</td><td>16.419</td><td>1.277</td><td>36.372</td></tr>
+        <tr><td>Compras por cada 100 personas</td><td>0,27</td><td>0,09</td><td>0,80</td><td>0,12</td><td>0,66</td></tr>
+        <tr><td>Costo por compra</td><td>USD 11,10</td><td>USD 20,91</td><td>USD 3,87</td><td>USD 21,17</td><td>USD 8,74</td></tr>
+        <tr><td>Ventas web</td><td>USD 0,37M</td><td>USD 0,07M</td><td>USD 0,95M</td><td>USD 0,01M</td><td>USD 1,41M</td></tr>
+        <tr><td>Ventas en tienda</td><td>USD 4,91M</td><td>USD 1,29M</td><td>USD 5,02M</td><td>USD 0,50M</td><td>USD 11,71M</td></tr>
+        <tr class="hl"><td>ROAS total</td><td>27,5</td><td>15,6</td><td>69,1</td><td>17,7</td><td>33,2</td></tr>
+        <tr><td>Ticket web / tienda</td><td>USD 156 / 329</td><td>USD 171 / 343</td><td>USD 162 / 305</td><td>USD 114 / 391</td><td>USD 160 / 322</td></tr>
+        <tr><td>Leads</td><td>0</td><td>0</td><td>1.788</td><td>35.130</td><td>36.918</td></tr>
+        <tr><td>Costo por lead</td><td>n/a</td><td>n/a</td><td>n/a</td><td>USD 0,82</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note" style="margin-top:10px">Compras por cada 100 personas: compras (web + tienda) divididas por personas alcanzadas. Son eventos de compra, no compradores únicos: una persona puede comprar más de una vez. "Clics que llegan a la web": visitas a la página ÷ clics; Lead Generation capta dentro de TikTok, por eso Financiamiento tiene pocas visitas. Totales de alcance y frecuencia: valores de la cuenta, no la suma de campañas.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Hallazgos</span>
+    <h2>Ocho cosas que nos dicen los datos</h2>
+    <p class="muted">Algunos puntos son hechos del reporte y otros son hipótesis a validar. Cada tarjeta lo indica.</p>
+  </div>
+  <div class="g-ins">
+    <div class="card insight"><div class="badge">1</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>La gente ve en TikTok y compra en la tienda</h3>
+      <p>El 89% de las ventas atribuidas es en tienda física. Incluso el catálogo, pensado para eCommerce, tiene 5 veces más ventas atribuidas en tienda (USD 5,0M) que en web (USD 0,95M).</p>
+      <span class="what">Qué hacemos: evaluar todas las campañas con ventas web + tienda</span></div></div>
+    <div class="card insight"><div class="badge">2</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>El catálogo es la campaña que más vende en tienda</h3>
+      <p>USD 5,02M en ventas en tienda atribuidas, algo más que la campaña Tiendas (USD 4,91M), con menos de la mitad de la inversión. No sabemos cuánto es nuevos clientes y cuánto retargeting, ni cuánta demanda viene de Marca y promociones.</p>
+      <span class="what">Qué hacemos: escalar el catálogo separando nuevos clientes y retargeting</span></div></div>
+    <div class="card insight"><div class="badge">3</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>El catálogo concentra el mayor retorno atribuido</h3>
+      <p>0,80 compras por cada 100 personas alcanzadas, contra 0,27 en Tiendas y 0,09 en Marca. Cada compra atribuida cuesta USD 3,87, contra USD 11 a 21 en las demás. Marca no se juzga solo por ventas: su función es construir marca.</p>
+      <span class="what">Qué hacemos: 45% de la inversión a conversión</span></div></div>
+    <div class="card insight"><div class="badge">4</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>Hipótesis: hay una gran diferencia entre clics y visitas a la web</h3>
+      <p>En el catálogo, las visitas equivalen al 76% de los clics. En Tiendas al 17% y en Marca al 12%. Puede deberse a destinos distintos a la web, a cómo se mide cada métrica o a la velocidad de carga. En Financiamiento (7%) es esperable: el formulario está dentro de TikTok.</p>
+      <span class="what">Qué hacemos: revisar destinos, tracking y velocidad antes de sacar conclusiones</span></div></div>
+    <div class="card insight"><div class="badge">5</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>Hipótesis: el recorrido online tiene espacio de mejora</h3>
+      <p>69.090 eventos de carrito y 8.779 compras web. Son eventos, no personas, así que no es una tasa de abandono real. El reporte no muestra si ya existe retargeting de carritos.</p>
+      <span class="what">Qué hacemos: validar abandono por usuario y verificar si hay retargeting</span></div></div>
+    <div class="card insight"><div class="badge">6</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>En tienda se gasta el doble que online</h3>
+      <p>Ticket promedio en tienda USD 322, en web USD 160. Las compras en tienda atribuidas a la campaña de Financiamiento tienen el ticket más alto: USD 391. Falta validar cuántas se pagaron con crédito.</p>
+      <span class="what">Qué hacemos: probar crédito con productos de ticket alto</span></div></div>
+    <div class="card insight"><div class="badge">7</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>Hay superposición de alcance entre campañas</h3>
+      <p>Sumadas alcanzan 14,9M, pero son 6,8M de personas distintas: en promedio cada persona ve 2 campañas. No prueba desperdicio: ver varias etapas del funnel puede ayudar a la compra. Marca tiene el CTR más bajo (0,24%), esperable en awareness.</p>
+      <span class="what">Qué hacemos: exclusiones solo donde compitan, por ejemplo nuevos clientes vs. retargeting</span></div></div>
+    <div class="card insight"><div class="badge">8</div><div style="display:grid;gap:8px;min-width:0">
+      <h3>Los leads son baratos, pero no sabemos si sirven</h3>
+      <p>35.130 leads a USD 0,82, el 3% de las personas alcanzadas. No hay dato de cuántos llegaron a un crédito aprobado.</p>
+      <span class="what">Qué hacemos: leads conectados al CRM y medir % aprobado</span></div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Recorrido online</span>
+    <h2>Recorrido web: señales para investigar</h2>
+    <p class="muted">Todas las campañas, del clic a la compra. Las barras usan escala logarítmica para que se vean los cuatro pasos.</p>
+  </div>
+  <div class="g2">
+    <div class="chart">
+      <h3>Toda la cuenta</h3>
+      <div class="sub">Tasa entre cada paso a la derecha</div>
+      <div class="funnel num" id="fn-all"></div>
+    </div>
+    <div class="chart">
+      <h3>Clics que llegan a cargar la web</h3>
+      <div class="sub">Visitas a la página ÷ clics, por campaña</div>
+      <div id="ch-lpv"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Cómo leer estos datos</span>
+    <h2>Tres cuidados antes de sacar conclusiones</h2>
+  </div>
+  <div class="g3">
+    <div class="card"><h3>Son ventas atribuidas</h3><p>La plataforma cruza las compras con quien vio o hizo clic en un anuncio. Parte de esas ventas habría ocurrido igual. Para medir cuánto genera TikTok de verdad, proponemos un Conversion Lift Study (grupo de control).</p></div>
+    <div class="card"><h3>Qué hay y qué falta</h3><p>El reporte trae compras web y en tienda atribuidas; hay que validar cómo están integradas y deduplicadas. Marketing se evalúa también con un estudio anual de marca, cuyos resultados no tenemos. Falta medir el impacto específico de TikTok y la calidad de los leads.</p></div>
+    <div class="card"><h3>Nombres de otra plataforma</h3><p>El reporte usa nombres como "Dynamic Ads" o "Lead Ads". En TikTok equivalen a Catalog Ads hacia la web y Lead Generation. Video Shopping Ads es para TikTok Shop.</p></div>
+  </div>
+</section>
+
+</div>
+<div class="view" id="v-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
+<section class="part" id="plan">
+  <div class="part-head"><span class="tag">Plan</span><h2>Ejecución 2027</h2></div>
+  <nav class="subnav" aria-label="Secciones del plan"><a href="#metas">Metas</a><a href="#funnel">Full funnel</a><a href="#campanas">Campañas</a><a href="#creatividad">Creatividad</a><a href="#medicion">Medición</a><a href="#calendario">Calendario</a><a href="#gobierno">Gobierno</a></nav>
+</section>
+
+<section id="metas">
+  <div class="sec-head">
+    <span class="eyebrow">Metas proyectadas</span>
+    <h2>Más ventas, más marca y más leads</h2>
+    <p class="muted">Proyecciones del modelo, no garantías. Son ventas atribuidas: lo que genera TikTok de verdad se mide con un Conversion Lift Study. Las metas sin línea base se fijan con los datos de Q1.</p>
+  </div>
+  <div class="tbl">
+    <table>
+      <thead><tr><th>Área</th><th>2026</th><th>Meta 2027</th><th>Potencial</th><th class="wrap">KPI</th></tr></thead>
+      <tbody>
+        <tr class="hl"><td><b>Ventas totales atribuidas</b></td><td>USD 13,1M</td><td><b>USD 16,2M (+23%)</b></td><td>USD 18,1M (+38%)</td><td class="wrap">ROAS total, ventas por área</td></tr>
+        <tr><td>Ventas en tienda</td><td>USD 11,7M</td><td><b>USD 14,3M (+22%)</b></td><td>USD 15,9M (+36%)</td><td class="wrap">Ventas offline atribuidas</td></tr>
+        <tr><td>Ventas online</td><td>USD 1,4M</td><td><b>USD 1,9M (+37%)</b></td><td>USD 2,2M (+57%)</td><td class="wrap">ROAS web, CPA</td></tr>
+        <tr><td>Compras</td><td>45k</td><td><b>57k (+25%)</b></td><td>64k (+41%)</td><td class="wrap">Costo por compra</td></tr>
+        <tr><td>Alcance total del plan</td><td>6,8M</td><td><b>8,8M (+29%)</b></td><td>8,8M (+29%)</td><td class="wrap">Alcance único, frecuencia</td></tr>
+        <tr><td>Marca</td><td>Estudio anual</td><td><b>+ Brand Lift (sujeto a elegibilidad)</b></td><td></td><td class="wrap">Impacto de TikTok en recordación y conocimiento (base Q1). Complementa el estudio anual</td></tr>
+        <tr><td>Leads de financiamiento</td><td>37k</td><td><b>53k (+44%)</b></td><td>61k (+66%)</td><td class="wrap">CPL, % de leads aprobados (base Q1)</td></tr>
+        <tr><td>Atención al cliente</td><td>Sin medición</td><td><b>Línea base en Q1</b></td><td></td><td class="wrap">Tiempo de respuesta en redes (CRM)</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="g3" style="margin-top:16px">
+    <div class="card"><h3>Cómo calculamos la meta</h3><p>Por campaña: presupuesto 2027 ÷ costo por persona = personas alcanzadas. Personas × conversión × ticket = ventas.</p></div>
+    <div class="card"><h3>Supuestos</h3><p>Costo de pauta +10%. Las personas que ya alcanzamos rinden igual; las nuevas rinden la mitad (meta) o el 75% (potencial). Alcance único: misma superposición que 2026 (6,8M sobre 14,9M sumados). Más presupuesto también puede subir la frecuencia en vez del alcance.</p></div>
+    <div class="card hl"><h3>Retorno marginal proyectado</h3><p>Unos USD 15,5 en ventas atribuidas por cada dólar adicional. El ROAS total proyectado pasa de 33 a 27. La rentabilidad real se valida con el margen de contribución y un Conversion Lift Studad.</p></div>
+  </div>
+</section>
+
+<section id="funnel">
+  <div class="sec-head">
+    <span class="eyebrow">Full funnel</span>
+    <h2>De 29% a 45% de la inversión en conversión</h2>
+    <p class="muted">Etapas según el objetivo de cada campaña en el reporte: Marca = awareness, Tiendas (engagement y promociones) = consideración, Catálogo y Financiamiento = conversión.</p>
+  </div>
+  <div class="mix">
+    <div class="mixrow"><b>2026</b><div class="mixbar"><span class="seg-a" style="width:22%">Awareness 22%</span><span class="seg-c" style="width:49%">Consideración 49%</span><span class="seg-v" style="width:29%">Conversión 29%</span></div></div>
+    <div class="mixrow"><b>2027</b><div class="mixbar"><span class="seg-a" style="width:20%">Awareness 20%</span><span class="seg-c" style="width:30%">Consideración 30%</span><span class="seg-v" style="width:45%">Conversión 45%</span><span class="seg-t" style="width:5%" title="Tests 5%">Tests</span></div></div>
+  </div>
+  <div class="g2" style="margin-top:18px">
+    <div class="chart">
+      <h3>Inversión por campaña</h3>
+      <div class="legend"><span><i style="background:var(--bar-muted)"></i>2026</span><span><i style="background:var(--accent)"></i>2027</span></div>
+      <div id="ch-budget"></div>
+    </div>
+    <div class="chart">
+      <h3>Ventas atribuidas proyectadas (meta)</h3>
+      <div class="legend"><span><i style="background:var(--bar-muted)"></i>2026</span><span><i style="background:var(--accent)"></i>2027</span></div>
+      <div id="ch-sales"></div>
+    </div>
+  </div>
+  <p class="note" style="margin-top:10px">En el modelo, todo el crecimiento viene del catálogo (+USD 3,5M) y Tiendas baja USD 0,8M por menor presupuesto. El rendimiento histórico justifica escalar el catálogo, pero no prueba que se mantenga de USD 86k a 207k. Por eso mantenemos Marca y promociones, que pueden alimentar sus ventas, y lo validamos en Q1.</p>
+</section>
+
+<section id="campanas">
+  <div class="sec-head">
+    <span class="eyebrow">Estructura de campañas</span>
+    <h2>Campaña, grupo de anuncios y anuncio</h2>
+    <p class="muted">Una ficha por campaña. Presupuestos anuales; la distribución mensual se define con el calendario comercial del cliente. Mínimos de TikTok: USD 50 por día por campaña y USD 20 por día por grupo de anuncios.</p>
+  </div>
+  <div style="display:grid;gap:18px">
+
+    <article class="camp">
+      <div class="camp-head"><div><div class="stage">Conversión · 35%</div><h3>Catálogo omnicanal</h3></div><div class="budget num">USD 207k</div></div>
+      <div class="tree">
+        <div class="lvl"><h4>Campaña</h4><ul><li>Objetivo Ventas con Catalog Ads (o Smart+ Catalog Ads) hacia la web del retailer</li><li>Optimiza a compra web (Purchase); el aporte en tienda se evalúa con eventos offline</li><li>Puja: Maximum Delivery al inicio; Cost Cap o Highest Value cuando haya volumen estable</li></ul></div>
+        <div class="lvl"><h4>Grupos de anuncios</h4><ul><li><b>Nuevos clientes:</b> audiencia amplia del país</li><li><b>Retargeting:</b> vieron producto o agregaron al carrito sin comprar (verificar si ya existe y cómo rinde)</li><li>Separar ambos para medir el rendimiento de cada uno al escalar</li></ul></div>
+        <div class="lvl"><h4>Anuncios</h4><ul><li>Catalog Ads con productos y precio</li><li>Spark Ads de creadores mostrando productos</li><li>Mensajes "comprá online o retirá en tienda"</li></ul></div>
+      </div>
+      <div class="kpiline"><b>KPI:</b> ventas en tienda atribuidas, ROAS web, costo por compra. <span class="muted">Meta: USD 9,5M en ventas.</span></div>
+    </article>
+
+    <article class="camp">
+      <div class="camp-head"><div><div class="stage">Consideración · 30%</div><h3>Tiendas</h3></div><div class="budget num">USD 178k</div></div>
+      <div class="tree">
+        <div class="lvl"><h4>Campaña</h4><ul><li>Objetivo Tráfico, hacia promociones y sucursales</li><li>Puja: Maximum Delivery</li><li>Medición de ventas en tienda con eventos offline</li></ul></div>
+        <div class="lvl"><h4>Grupos de anuncios</h4><ul><li>Un grupo por ciudad o zona con tiendas (segmentación por ciudad o código postal)</li><li>Promociones locales que también alimentan las ventas del catálogo</li></ul></div>
+        <div class="lvl"><h4>Anuncios</h4><ul><li>Promoción de la semana por tienda</li><li>Creadores locales en el local</li><li>Cupón exclusivo para canjear en tienda</li></ul></div>
+      </div>
+      <div class="kpiline"><b>KPI:</b> clics que llegan a la web (hoy 17%), costo por visita, ventas en tienda atribuidas, cupones canjeados. <span class="muted">Meta: USD 4,4M en ventas.</span></div>
+    </article>
+
+    <article class="camp">
+      <div class="camp-head"><div><div class="stage">Awareness · 20%</div><h3>Marca</h3></div><div class="budget num">USD 118k</div></div>
+      <div class="tree">
+        <div class="lvl"><h4>Campaña</h4><ul><li><b>Siempre activa:</b> Reach &amp; Frequency (reserva, CPM fijo) con frecuencia controlada</li><li><b>Fechas pico:</b> TopView en Día de la Madre, Black Friday y Navidad (confirmar disponibilidad, precio y mínimos en el mercado)</li></ul></div>
+        <div class="lvl"><h4>Grupos de anuncios</h4><ul><li>Audiencia amplia del país</li><li>Sin exclusiones generales: la marca acompaña todo el funnel</li></ul></div>
+        <div class="lvl"><h4>Anuncios</h4><ul><li>Video de marca de 15 a 30 segundos</li><li>Creadores contando por qué comprar ahí</li><li>Una pieza por fecha clave</li></ul></div>
+      </div>
+      <div class="kpiline"><b>KPI:</b> alcance único, frecuencia, recordación y conocimiento (Brand Lift Study, sujeto a elegibilidad, lo configura el account manager). <span class="muted">Meta: aporte principal al alcance total del plan (8,8M personas).</span></div>
+    </article>
+
+    <article class="camp">
+      <div class="camp-head"><div><div class="stage">Conversión · 10%</div><h3>Financiamiento</h3></div><div class="budget num">USD 59k</div></div>
+      <div class="tree">
+        <div class="lvl"><h4>Campaña</h4><ul><li>Objetivo Lead Generation con formulario instantáneo</li><li>Leads enviados al CRM del área de crédito</li></ul></div>
+        <div class="lvl"><h4>Grupos de anuncios</h4><ul><li>Audiencia amplia del país</li><li>Lookalike de clientes con crédito aprobado (cuando haya base)</li></ul></div>
+        <div class="lvl"><h4>Anuncios</h4><ul><li>Cuotas de productos de ticket alto</li><li>Creadores explicando cómo pedir el crédito</li><li>Formulario con preguntas simples (ciudad, producto de interés). Sin ingresos ni datos financieros: la política de TikTok no lo permite sin autorización escrita</li></ul></div>
+      </div>
+      <div class="kpiline"><b>KPI:</b> costo por lead, % de leads calificados, % de leads con crédito aprobado. <span class="muted">Meta: 53k leads.</span></div>
+    </article>
+
+    <article class="camp">
+      <div class="camp-head"><div><div class="stage">Tests · 5%</div><h3>Laboratorio creativo</h3></div><div class="budget num">USD 30k</div></div>
+      <div class="tree">
+        <div class="lvl"><h4>Cuándo</h4><ul><li>Abril y octubre, meses sin fechas comerciales</li></ul></div>
+        <div class="lvl"><h4>Qué probamos</h4><ul><li>Formatos nuevos y nuevas creatividades</li><li>Branded Mission con creadores</li></ul></div>
+        <div class="lvl"><h4>Regla</h4><ul><li>Lo que gana pasa a la campaña principal del trimestre siguiente</li></ul></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="creatividad">
+  <div class="sec-head">
+    <span class="eyebrow">Creatividad</span>
+    <h2>Videos hechos para TikTok, no adaptados de TV</h2>
+  </div>
+  <div class="g3">
+    <div class="card"><h3>Los primeros 2 a 3 segundos</h3><p>El producto, el precio o la oferta aparecen de entrada. Si no engancha ahí, el resto no se ve.</p></div>
+    <div class="card"><h3>Vertical y con sonido</h3><p>Formato 9:16, personas reales, texto en pantalla y audio pensado para la plataforma.</p></div>
+    <div class="card"><h3>Creadores y Spark Ads</h3><p>Contenido de creadores pautado desde su cuenta. Se ve como contenido nativo y suma credibilidad.</p></div>
+    <div class="card"><h3>Varias piezas por grupo</h3><p>Al menos 3 anuncios activos por grupo para que el sistema elija y para evitar fatiga.</p></div>
+    <div class="card"><h3>Renovar seguido</h3><p>Cuando el CTR baja de forma sostenida, rotar piezas. Abril y octubre alimentan el banco de creatividades.</p></div>
+    <div class="card"><h3>No tocar en aprendizaje</h3><p>Después de lanzar o hacer cambios grandes, dejar correr unos 7 días (o unos 25 resultados) antes de evaluar.</p></div>
+  </div>
+</section>
+
+<section id="medicion">
+  <div class="sec-head">
+    <span class="eyebrow">Medición</span>
+    <h2>Lo que necesitamos antes del kickoff y qué miramos después</h2>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3>Antes de arrancar</h3>
+      <ul class="steps">
+        <li><span><b>Validar Pixel y Events API:</b> integración, deduplicación y calidad de datos.</span></li>
+        <li><span><b>Eventos offline</b> de compras en tienda subidos de forma regular.</span></li>
+        <li><span><b>Leads conectados al CRM</b> con estado: calificado, aprobado, rechazado.</span></li>
+        <li><span><b>Catálogo actualizado</b> con precio y stock.</span></li>
+        <li><span><b>Brand Lift Study</b> con el account manager (confirmar elegibilidad y cadencia).</span></li>
+        <li><span><b>Conversion Lift Study</b> definido con TikTok (elegibilidad a confirmar).</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Qué miramos y cada cuánto</h3>
+      <div class="tbl" style="border:none"><table style="min-width:0">
+        <thead><tr><th>Frecuencia</th><th class="wrap">Qué</th></tr></thead>
+        <tbody>
+          <tr><td>Semanal</td><td class="wrap">Costo por compra, CTR, frecuencia, CPL, creatividades que caen</td></tr>
+          <tr><td>Mensual</td><td class="wrap">Ventas web y tienda por campaña, leads aprobados, tablero por área</td></tr>
+          <tr><td>Trimestral</td><td class="wrap">Con gerencia: catálogo, ventas por canal, calidad de leads, medición y pruebas. Se ajusta el mix</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+</section>
+
+<section id="calendario">
+  <div class="sec-head">
+    <span class="eyebrow">Calendario 2027</span>
+    <h2>La inversión acompaña los picos de venta</h2>
+    <p class="muted">Planificación sujeta a validación con el calendario comercial del cliente.</p>
+  </div>
+  <div class="cal">
+    <div class="q"><h3>Q1</h3><dl><dt>Enero</dt><dd>Reyes, campaña de verano</dd><dt>Febrero</dt><dd>Vuelta a clases, Día de los Enamorados</dd><dt>Marzo</dt><dd>Semana Santa · planificar TopView del Día de la Madre</dd></dl><span class="rev">Revisión Q1</span></div>
+    <div class="q"><h3>Q2</h3><dl><dt>Abril</dt><dd class="test">Tests creativos y Brand Lift</dd><dt>Mayo</dt><dd>Día de la Madre</dd><dt>Junio</dt><dd>Día del Padre</dd></dl><span class="rev">Revisión Q2</span></div>
+    <div class="q"><h3>Q3</h3><dl><dt>Julio</dt><dd>Hot Sale</dd><dt>Agosto</dt><dd>Agosto Liquida</dd><dt>Septiembre</dt><dd>Nuevo iPhone, Día de la Primavera · planificar TopView de noviembre</dd></dl><span class="rev">Revisión Q3</span></div>
+    <div class="q peak"><h3>Q4</h3><dl><dt>Octubre</dt><dd class="test">Tests creativos y Brand Lift</dd><dt>Noviembre</dt><dd>Cyberday, Black Friday, Cyber Monday</dd><dt>Diciembre</dt><dd>Navidad, aguinaldo</dd></dl><span class="rev">Revisión Q4</span></div>
+  </div>
+</section>
+
+<section id="gobierno">
+  <div class="sec-head">
+    <span class="eyebrow">Gobierno y riesgos</span>
+    <h2>Quién hace qué y cómo cuidamos la inversión</h2>
+  </div>
+  <div class="g2">
+    <div class="card">
+      <h3>Responsabilidades</h3>
+      <div class="tbl" style="border:none"><table style="min-width:0">
+        <tbody>
+          <tr><td><b>Aleph / TikTok</b></td><td class="wrap">Plan de medición, seguimiento, recomendaciones de optimización y coordinación de soluciones de TikTok</td></tr>
+          <tr><td><b>Marketing</b></td><td class="wrap">Aprobación de creatividades y calendario</td></tr>
+          <tr><td><b>eCommerce</b></td><td class="wrap">Responsable de catálogo y stock; datos y medición web</td></tr>
+          <tr><td><b>Financiamiento</b></td><td class="wrap">Responsable de gestión de leads en el CRM y su estado</td></tr>
+          <tr><td><b>Atención al cliente</b></td><td class="wrap">Mensajes automáticos de la cuenta Business y tiempo de respuesta</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+    <div class="card">
+      <h3>Riesgos</h3>
+      <div class="tbl" style="border:none"><table style="min-width:0">
+        <tbody>
+          <tr><td class="wrap"><b>El catálogo no escala o depende de Marca</b></td><td class="wrap">Separar nuevos clientes y retargeting; revisar rendimiento marginal cada mes</td></tr>
+          <tr><td class="wrap"><b>Parte de las ventas atribuidas iban a ocurrir igual</b></td><td class="wrap">Conversion Lift Study de TikTok</td></tr>
+          <tr><td class="wrap"><b>Medición tarde</b></td><td class="wrap">Condición del kickoff</td></tr>
+          <tr><td class="wrap"><b>Costos en fechas pico</b></td><td class="wrap">Reservas con anticipación</td></tr>
+          <tr><td class="wrap"><b>Fatiga creativa</b></td><td class="wrap">5% de tests y rotación</td></tr>
+          <tr><td class="wrap"><b>Leads de baja calidad</b></td><td class="wrap">Calificación en el CRM</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:16px">
+    <span class="eyebrow" style="color:var(--cyan)">Revisión trimestral</span>
+    <p><b>Semanal:</b> rendimiento y creatividades. <b>Mensual:</b> ventas por canal, leads y medición; los ajustes operativos se hacen acá, sin esperar el trimestre. <b>Trimestral con gerencia:</b> avance contra la meta anual, rendimiento del catálogo, calidad de leads y pruebas; se decide el mix del trimestre siguiente. Los umbrales se acuerdan con ustedes cuando haya datos suficientes.</p>
+  </div>
+</section>
+
+</div>
+<footer>
+  <span>Fuente: datos de la cuenta, últimos 12 meses. Ventas atribuidas por la plataforma.</span>
+  <span>Funcionalidades de TikTok verificadas en el Centro de Ayuda de TikTok Ads (octubre 2026). Disponibilidad por país a confirmar con el account manager.</span>
+</footer>
+</main>
+
+<script>
+(function(){
+  const tabs=[...document.querySelectorAll('.switch [data-view]')];
+  function show(v,scroll){
+    tabs.forEach(t=>t.setAttribute('aria-selected',String(t.dataset.view===v)));
+    document.getElementById('v-reporte').hidden=v!=='reporte';
+    document.getElementById('v-plan').hidden=v!=='plan';
+    if(scroll)window.scrollTo({top:0});
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>{show(t.dataset.view,true);try{history.replaceState(null,'','#'+t.dataset.view)}catch(e){}}));
+  const planIds=['plan','metas','funnel','campanas','creatividad','medicion','calendario','gobierno'];
+  const h=(location.hash||'').slice(1);
+  show(planIds.includes(h)?'plan':'reporte',false);
+  if(h&&h!=='plan'&&h!=='reporte'){const e=document.getElementById(h);if(e)e.scrollIntoView();}
+})();
+(function(){
+  const NS="http://www.w3.org/2000/svg";
+  const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
+  const txt=(p,x,y,s,cls,anchor)=>{const t=el("text",{x,y,"text-anchor":anchor||"start",class:cls||""},p);t.textContent=s;return t};
+  const fmt=(v,d)=>v.toLocaleString("es-AR",{minimumFractionDigits:d||0,maximumFractionDigits:d||0});
+
+  // grouped vertical bars
+  function grouped(id,cats,series,max,fmtv){
+    const W=520,H=260,L=10,R=10,T=22,B=30,pw=W-L-R,ph=H-T-B,gw=pw/cats.length,bw=gw*0.32;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
+    el("line",{x1:L,x2:W-R,y1:T+ph,y2:T+ph,class:"s-line","stroke-width":1},svg);
+    cats.forEach((c,i)=>{
+      series.forEach((s,k)=>{
+        const v=s.v[i],h=Math.max(ph*v/max,1.5),x=L+i*gw+gw*0.16+k*(bw+4),y=T+ph-h;
+        el("rect",{x,y,width:bw,height:h,rx:3,class:s.cls},svg);
+        txt(svg,x+bw/2,y-6,fmtv(v),"","middle");
+      });
+      txt(svg,L+i*gw+gw/2,H-10,c,"m","middle");
+    });
+    document.getElementById(id).appendChild(svg);
+  }
+  // stacked horizontal bars
+  function hstack(id,rows,max,fmtv){
+    const W=520,rowH=46,L=112,R=60,H=rows.length*rowH+10,pw=W-L-R;
+    const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
+    rows.forEach((r,i)=>{
+      const y=8+i*rowH; let x=L, tot=0;
+      txt(svg,L-10,y+20,r.label,"m","end");
+      r.parts.forEach(p=>{const w=Math.max(pw*p.v/max,1.5);el("rect",{x,y:y+4,width:w,height:24,class:p.cls},svg);x+=w;tot+=p.v});
+      const t=txt(svg,x+6,y+21,fmtv(tot),"");t.setAttribute("font-weight","700");
+    });
+    document.getElementById(id).appendChild(svg);
+  }
+
+  grouped("ch-share",["Tiendas","Marca","Catálogo","Financ."],[{cls:"f-mut",v:[49,22,22,7]},{cls:"f-acc",v:[40,10,46,4]}],50,v=>v+"%");
+  hstack("ch-roas",[
+    {label:"Catálogo",parts:[{v:58.1,cls:"f-acc"},{v:11.0,cls:"f-cyan"}]},
+    {label:"Tiendas",parts:[{v:25.6,cls:"f-acc"},{v:1.9,cls:"f-cyan"}]},
+    {label:"Financiamiento",parts:[{v:17.3,cls:"f-acc"},{v:0.3,cls:"f-cyan"}]},
+    {label:"Marca",parts:[{v:14.7,cls:"f-acc"},{v:0.9,cls:"f-cyan"}]},
+  ],72,v=>fmt(v,1));
+  hstack("ch-lpv",[
+    {label:"Catálogo",parts:[{v:76,cls:"f-acc"}]},
+    {label:"Tiendas",parts:[{v:17,cls:"f-mut"}]},
+    {label:"Marca",parts:[{v:12,cls:"f-mut"}]},
+    {label:"Financiamiento",parts:[{v:7,cls:"f-mut"}]},
+  ],100,v=>v+"%");
+  grouped("ch-budget",["Catálogo","Tiendas","Marca","Financ.","Tests"],[{cls:"f-mut",v:[86,192,88,29,0]},{cls:"f-acc",v:[207,178,118,59,30]}],215,v=>v+"k");
+  grouped("ch-sales",["Catálogo","Tiendas","Marca","Financ."],[{cls:"f-mut",v:[5.97,5.28,1.36,0.51]},{cls:"f-acc",v:[9.50,4.44,1.51,0.73]}],10,v=>fmt(v,1)+"M");
+
+  // funnel (log scale)
+  const steps=[["Clics",6052818],["Visitas a la web",2603745],["Agregados al carrito",69090],["Compras web",8779]];
+  const lmax=Math.log10(steps[0][1]),lmin=Math.log10(1000);
+  const fn=document.getElementById("fn-all");
+  steps.forEach((s,i)=>{
+    const row=document.createElement("div");row.className="fstep";
+    const w=Math.max(4,100*(Math.log10(s[1])-lmin)/(lmax-lmin));
+    const rate=i===0?"":Math.round(100*s[1]/steps[i-1][1])+"%";
+    row.innerHTML=`<span><b>${fmt(s[1])}</b><br><span class="muted" style="font-size:12px">${s[0]}</span></span><div><div class="fbar" style="width:${w}%"></div></div><span class="rate">${rate}</span>`;
+    fn.appendChild(row);
+  });
+})();
+</script>
+
+</body>
+</html>
