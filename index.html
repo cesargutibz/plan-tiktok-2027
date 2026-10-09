@@ -92,6 +92,9 @@ thead th{vertical-align:bottom!important;font-size:12px;text-transform:uppercase
 tbody tr:last-child td{border-bottom:none}
 tr.hl td{background:var(--accent-tint)}
 td.wrap,th.wrap{white-space:normal;text-align:left;min-width:150px;vertical-align:middle}
+.t-camp{table-layout:fixed}
+.t-camp th:first-child{width:24%}
+.t-camp th:not(:first-child),.t-camp td:not(:first-child),.t-camp td.wrap{text-align:center;min-width:0}
 
 /* funnel */
 .funnel{display:grid;gap:8px}
@@ -228,10 +231,10 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
     <h2>Todos los números en una tabla</h2>
   </div>
   <div class="tbl">
-    <table>
+    <table class="t-camp">
       <thead><tr><th>Métrica</th><th>Tiendas</th><th>Marca</th><th>Catálogo</th><th>Financiamiento</th><th>Total</th></tr></thead>
       <tbody>
-        <tr><td>Objetivo 2026</td><td class="wrap">Engagement y awareness con promos</td><td class="wrap">Awareness always on</td><td class="wrap">Catálogo dinámico</td><td class="wrap">Leads</td><td></td></tr>
+        <tr><td>Objetivo 2026</td><td class="wrap">Engagement y promociones</td><td class="wrap">Awareness always on</td><td class="wrap">Catálogo dinámico</td><td class="wrap">Leads</td><td></td></tr>
         <tr><td>Inversión</td><td>USD 191,9k</td><td>USD 87,5k</td><td>USD 86,3k</td><td>USD 28,8k</td><td>USD 394,5k</td></tr>
         <tr><td>Personas alcanzadas</td><td>6,41M</td><td>4,56M</td><td>2,77M</td><td>1,16M</td><td>6,82M</td></tr>
         <tr><td>Impresiones</td><td>311,4M</td><td>269,3M</td><td>90,9M</td><td>24,3M</td><td>695,9M</td></tr>
