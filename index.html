@@ -51,7 +51,8 @@ section.part{border-top:none;padding-block:12px 0}
 .sec-head{display:grid;gap:8px;margin-bottom:22px}
 
 /* kpis */
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+@media (max-width:720px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .kpi{background:var(--surface);border-radius:14px;padding:16px}
 .kpi b{display:block;font-family:var(--font-display);font-size:clamp(20px,2.2vw,26px);white-space:nowrap;font-weight:800;line-height:1.1}
 .kpi span{font-size:13px;color:var(--muted)}
@@ -125,14 +126,14 @@ td.wrap,th.wrap{white-space:normal;text-align:left;min-width:150px;vertical-alig
 
 /* calendar */
 .cal{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
-.q{background:var(--surface);border-radius:16px;padding:18px;display:grid;gap:12px;align-content:start}
+.q{background:var(--surface);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:12px}
 .q.peak{background:var(--accent-tint)}
 .q h3{font-size:26px}
 .q dl{margin:0;display:grid;gap:8px}
 .q dt{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .q dd{margin:0;font-size:15px}
 .q dd.test{color:var(--good);font-style:italic}
-.q .rev{justify-self:start;background:var(--ink);color:var(--bg);border-radius:999px;font-size:12px;font-weight:700;padding:4px 12px}
+.q .rev{align-self:flex-start;margin-top:auto;background:var(--ink);color:var(--bg);border-radius:999px;font-size:12px;font-weight:700;padding:4px 12px}
 
 .note{font-size:13px;color:var(--muted)}
 .switch{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;margin-bottom:8px}
@@ -443,7 +444,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
     <article class="camp">
       <div class="camp-head"><div><div class="stage">Tests · 5%</div><h3>Laboratorio creativo</h3></div><div class="budget num">USD 30k</div></div>
       <div class="tree">
-        <div class="lvl"><h4>Cuándo</h4><ul><li>Abril y octubre, meses sin fechas comerciales</li></ul></div>
+        <div class="lvl"><h4>Cuándo</h4><ul><li>Abril y octubre, meses con menos fechas comerciales fuertes</li></ul></div>
         <div class="lvl"><h4>Qué probamos</h4><ul><li>Formatos nuevos y nuevas creatividades</li><li>Branded Mission con creadores</li></ul></div>
         <div class="lvl"><h4>Regla</h4><ul><li>Lo que gana pasa a la campaña principal del trimestre siguiente</li></ul></div>
       </div>
@@ -594,13 +595,13 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
   }
   // stacked horizontal bars
   function hstack(id,rows,max,fmtv){
-    const W=520,rowH=46,L=112,R=60,H=rows.length*rowH+10,pw=W-L-R;
+    const W=520,rowH=62,L=112,R=60,H=rows.length*rowH+10,pw=W-L-R;
     const svg=el("svg",{viewBox:`0 0 ${W} ${H}`,role:"img"});
     rows.forEach((r,i)=>{
       const y=8+i*rowH; let x=L, tot=0;
-      txt(svg,L-10,y+20,r.label,"m","end");
-      r.parts.forEach(p=>{const w=Math.max(pw*p.v/max,1.5);el("rect",{x,y:y+4,width:w,height:24,class:p.cls},svg);x+=w;tot+=p.v});
-      const t=txt(svg,x+6,y+21,fmtv(tot),"");t.setAttribute("font-weight","700");
+      txt(svg,L-10,y+28,r.label,"m","end");
+      r.parts.forEach(p=>{const w=Math.max(pw*p.v/max,1.5);el("rect",{x,y:y+8,width:w,height:32,class:p.cls},svg);x+=w;tot+=p.v});
+      const t=txt(svg,x+6,y+29,fmtv(tot),"");t.setAttribute("font-weight","700");
     });
     document.getElementById(id).appendChild(svg);
   }
