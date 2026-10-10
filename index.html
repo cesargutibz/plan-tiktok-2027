@@ -136,6 +136,7 @@ td.wrap,th.wrap{white-space:normal;text-align:left;min-width:150px;vertical-alig
 .q .rev{align-self:flex-start;margin-top:auto;background:var(--ink);color:var(--bg);border-radius:999px;font-size:12px;font-weight:700;padding:4px 12px}
 
 .note{font-size:13px;color:var(--muted)}
+.v-good{color:var(--good);font-weight:700}.v-bad{color:var(--accent);font-weight:700}.v-neu{color:var(--muted);font-weight:700}
 .switch{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);padding-block:10px;margin-bottom:8px}
 .switch-in{max-width:1040px;margin:0 auto;padding-inline:20px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .switch button{font:inherit;font-weight:700;font-size:15px;border:1.5px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:999px;padding:8px 18px;cursor:pointer}
@@ -198,7 +199,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
   <div class="kpis num">
     <div class="kpi"><b>USD 395k</b><span>inversión anual</span></div>
     <div class="kpi hl"><b>USD 13,1M</b><span>ventas atribuidas</span></div>
-    <div class="kpi"><b>33,2</b><span>ROAS total (web + tienda)</span></div>
+    <div class="kpi"><b>3,6 / 29,7</b><span>ROAS web / ROAS tienda</span></div>
     <div class="kpi"><b>89%</b><span>de las ventas, en tienda física</span></div>
     <div class="kpi"><b>6,8M</b><span>personas alcanzadas</span></div>
     <div class="kpi"><b>45,2k</b><span>compras atribuidas</span></div>
@@ -242,6 +243,8 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
         <tr><td>Frecuencia anual</td><td>49</td><td>59</td><td>33</td><td>21</td><td>102</td></tr>
         <tr><td>CPM</td><td>USD 0,62</td><td>USD 0,32</td><td>USD 0,95</td><td>USD 1,19</td><td>USD 0,57</td></tr>
         <tr><td>CTR</td><td>0,79%</td><td>0,24%</td><td>3,06%</td><td>0,73%</td><td>0,87%</td></tr>
+        <tr><td>CPC</td><td>USD 0,08</td><td>USD 0,14</td><td>USD 0,03</td><td>USD 0,16</td><td>USD 0,07</td></tr>
+        <tr><td>Conversion Rate web (CVR)</td><td>0,10%</td><td>0,07%</td><td>0,21%</td><td>0,05%</td><td>0,15%</td></tr>
         <tr><td>Clics que llegan a la web</td><td>17%</td><td>12%</td><td>76%</td><td>7%</td><td>43%</td></tr>
         <tr><td>Compras web</td><td>2.360</td><td>436</td><td>5.901</td><td>82</td><td>8.779</td></tr>
         <tr><td>Compras en tienda</td><td>14.926</td><td>3.750</td><td>16.419</td><td>1.277</td><td>36.372</td></tr>
@@ -249,14 +252,40 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
         <tr><td>Costo por compra</td><td>USD 11,10</td><td>USD 20,91</td><td>USD 3,87</td><td>USD 21,17</td><td>USD 8,74</td></tr>
         <tr><td>Ventas web</td><td>USD 0,37M</td><td>USD 0,07M</td><td>USD 0,95M</td><td>USD 0,01M</td><td>USD 1,41M</td></tr>
         <tr><td>Ventas en tienda</td><td>USD 4,91M</td><td>USD 1,29M</td><td>USD 5,02M</td><td>USD 0,50M</td><td>USD 11,71M</td></tr>
-        <tr class="hl"><td>ROAS total</td><td>27,5</td><td>15,6</td><td>69,1</td><td>17,7</td><td>33,2</td></tr>
+        <tr class="hl"><td>ROAS web</td><td>1,9</td><td>0,9</td><td>11,0</td><td>0,3</td><td>3,6</td></tr>
+        <tr class="hl"><td>ROAS tienda</td><td>25,6</td><td>14,7</td><td>58,1</td><td>17,3</td><td>29,7</td></tr>
+        <tr><td>ROAS total (web + tienda)</td><td>27,5</td><td>15,6</td><td>69,1</td><td>17,7</td><td>33,2</td></tr>
         <tr><td>Ticket web / tienda</td><td>USD 156 / 329</td><td>USD 171 / 343</td><td>USD 162 / 305</td><td>USD 114 / 391</td><td>USD 160 / 322</td></tr>
         <tr><td>Leads</td><td>0</td><td>0</td><td>1.788</td><td>35.130</td><td>36.918</td></tr>
-        <tr><td>Costo por lead</td><td>n/a</td><td>n/a</td><td>n/a</td><td>USD 0,82</td><td></td></tr>
+        <tr><td>Costo por lead (CPL)</td><td>n/a</td><td>n/a</td><td>USD 48,29</td><td>USD 0,82</td><td>USD 10,69</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note" style="margin-top:10px">Compras por cada 100 personas: compras (web + tienda) divididas por personas alcanzadas. Son eventos de compra, no compradores únicos: una persona puede comprar más de una vez. "Clics que llegan a la web": visitas a la página ÷ clics; Lead Generation capta dentro de TikTok, por eso Financiamiento tiene pocas visitas. Totales de alcance y frecuencia: valores de la cuenta, no la suma de campañas.</p>
+  <p class="note" style="margin-top:10px">CPC, CTR, CVR, CPA y CPL: cálculo propio sobre el reporte. CVR web: compras web ÷ clics. El CPL que importa es el de Financiamiento: Catálogo y el total incluyen leads que no son su objetivo. Compras por cada 100 personas: compras (web + tienda) divididas por personas alcanzadas. Son eventos de compra, no compradores únicos: una persona puede comprar más de una vez. "Clics que llegan a la web": visitas a la página ÷ clics; Lead Generation capta dentro de TikTok, por eso Financiamiento tiene pocas visitas. Totales de alcance y frecuencia: valores de la cuenta, no la suma de campañas.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="eyebrow">Comparación con el mercado</span>
+    <h2>Comprar medios les sale barato; el cuello de botella es la conversión web</h2>
+    <p class="muted">No hay benchmarks públicos de Paraguay. Comparamos contra la región (Brasil y México) y el promedio global de TikTok. Es una referencia orientativa: cada fuente mide distinto.</p>
+  </div>
+  <div class="tbl">
+    <table class="t-camp">
+      <thead><tr><th>KPI</th><th>2026</th><th>Mercado</th><th>Lectura</th></tr></thead>
+      <tbody>
+        <tr><td>CPM</td><td>USD 0,57</td><td class="wrap">Brasil 3,50 · México 3,20 · global 4,08</td><td class="v-good">Muy barato</td></tr>
+        <tr><td>CTR</td><td>0,87%</td><td class="wrap">Global 0,61% · moda 0,74%</td><td class="v-good">Arriba del promedio</td></tr>
+        <tr><td>CPC</td><td>USD 0,07</td><td class="wrap">Brasil 0,35 · México 0,30</td><td class="v-good">Muy barato</td></tr>
+        <tr class="hl"><td>CVR web</td><td>0,15%</td><td class="wrap">Global 1,56% · moda 2,08%</td><td class="v-bad">Unas 10 veces más bajo</td></tr>
+        <tr><td>ROAS web</td><td>3,6</td><td class="wrap">Global 1,51 · moda 2,70</td><td class="v-good">Bueno</td></tr>
+        <tr><td>CPA</td><td>USD 8,74</td><td class="wrap">Global 17,07 · moda 20,64</td><td class="v-good">La mitad</td></tr>
+        <tr><td>CPL Financiamiento</td><td>USD 0,82</td><td class="wrap">Finanzas en EE.UU. 30 a 95</td><td class="v-good">Barato; calidad a validar</td></tr>
+        <tr><td>ROAS tienda</td><td>29,7</td><td class="wrap">Sin benchmark público</td><td class="v-neu">Se valida con Conversion Lift</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note" style="margin-top:10px">Fuentes: Stackmatix 2026 (Brasil y México), Triple Whale, ago 2025 a jul 2026, más de 5.900 marcas (global y moda), Leadgen Economy 2026 (CPL finanzas, EE.UU.). Un CPM bajo es esperable en un mercado chico.</p>
 </section>
 
 <section>
@@ -283,9 +312,9 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
       <p>En el catálogo, las visitas equivalen al 76% de los clics. En Tiendas al 17% y en Marca al 12%. Puede deberse a destinos distintos a la web, a cómo se mide cada métrica o a la velocidad de carga. En Financiamiento (7%) es esperable: el formulario está dentro de TikTok.</p>
       <span class="what">Qué hacemos: revisar destinos, tracking y velocidad antes de sacar conclusiones</span></div></div>
     <div class="card insight"><div class="badge">5</div><div style="display:grid;gap:8px;min-width:0">
-      <h3>Hipótesis: el recorrido online tiene espacio de mejora</h3>
-      <p>69.090 eventos de carrito y 8.779 compras web. Son eventos, no personas, así que no es una tasa de abandono real. El reporte no muestra si ya existe retargeting de carritos.</p>
-      <span class="what">Qué hacemos: validar abandono por usuario y verificar si hay retargeting</span></div></div>
+      <h3>La web convierte poco: es la principal palanca online</h3>
+      <p>Solo el 0,15% de los clics termina en una compra web, contra ~1,5% del promedio global de TikTok. Hay 69.090 eventos de carrito y 8.779 compras web; son eventos, no personas. El reporte no muestra si ya existe retargeting de carritos.</p>
+      <span class="what">Qué hacemos: mejorar la conversión web junto a eCommerce (landing, checkout y retargeting de carritos)</span></div></div>
     <div class="card insight"><div class="badge">6</div><div style="display:grid;gap:8px;min-width:0">
       <h3>En tienda se gasta el doble que online</h3>
       <p>Ticket promedio en tienda USD 322, en web USD 160. Las compras en tienda atribuidas a la campaña de Financiamiento tienen el ticket más alto: USD 391. Falta validar cuántas se pagaron con crédito.</p>
@@ -296,8 +325,8 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
       <span class="what">Qué hacemos: exclusiones solo donde compitan, por ejemplo nuevos clientes vs. retargeting</span></div></div>
     <div class="card insight"><div class="badge">8</div><div style="display:grid;gap:8px;min-width:0">
       <h3>Los leads son baratos, pero no sabemos si sirven</h3>
-      <p>35.130 leads a USD 0,82, el 3% de las personas alcanzadas. No hay dato de cuántos llegaron a un crédito aprobado.</p>
-      <span class="what">Qué hacemos: leads conectados al CRM y medir % aprobado</span></div></div>
+      <p>35.130 leads a USD 0,82, el 3% de las personas alcanzadas. No hay dato de cuántos llegaron a un crédito aprobado. Si los leads crecen, el área de crédito tiene que poder atenderlos.</p>
+      <span class="what">Qué hacemos: leads conectados al CRM, medir % aprobado y validar la capacidad del área de Financiamiento</span></div></div>
   </div>
 </section>
 
@@ -337,7 +366,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
 <div class="view" id="v-plan" role="tabpanel" aria-labelledby="tab-plan" hidden>
 <section class="part" id="plan">
   <div class="part-head"><span class="tag">Plan</span><h2>Ejecución 2027</h2></div>
-  <nav class="subnav" aria-label="Secciones del plan"><a href="#metas">Metas</a><a href="#funnel">Full funnel</a><a href="#campanas">Campañas</a><a href="#creatividad">Creatividad</a><a href="#medicion">Medición</a><a href="#calendario">Calendario</a><a href="#gobierno">Gobierno</a></nav>
+  <nav class="subnav" aria-label="Secciones del plan"><a href="#metas">Metas</a><a href="#escenarios">Escenarios</a><a href="#objetivos">Objetivos</a><a href="#funnel">Full funnel</a><a href="#campanas">Campañas</a><a href="#creatividad">Creatividad</a><a href="#medicion">Medición</a><a href="#calendario">Calendario</a><a href="#gobierno">Gobierno</a></nav>
 </section>
 
 <section id="metas">
@@ -353,7 +382,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
         <tr class="hl"><td><b>Ventas totales atribuidas</b></td><td>USD 13,1M</td><td><b>USD 16,2M (+23%)</b></td><td>USD 18,1M (+38%)</td><td class="wrap">ROAS total, ventas por área</td></tr>
         <tr><td>Ventas en tienda</td><td>USD 11,7M</td><td><b>USD 14,3M (+22%)</b></td><td>USD 15,9M (+36%)</td><td class="wrap">Ventas offline atribuidas</td></tr>
         <tr><td>Ventas online</td><td>USD 1,4M</td><td><b>USD 1,9M (+37%)</b></td><td>USD 2,2M (+57%)</td><td class="wrap">ROAS web, CPA</td></tr>
-        <tr><td>Compras</td><td>45k</td><td><b>57k (+25%)</b></td><td>64k (+41%)</td><td class="wrap">Costo por compra</td></tr>
+        <tr><td>Cantidad de compras (web + tienda)</td><td>45k</td><td><b>57k (+25%)</b></td><td>64k (+41%)</td><td class="wrap">Costo por compra</td></tr>
         <tr><td>Alcance total del plan</td><td>6,8M</td><td><b>8,8M (+29%)</b></td><td>8,8M (+29%)</td><td class="wrap">Alcance único, frecuencia</td></tr>
         <tr><td>Marca</td><td>Estudio anual</td><td><b>+ Brand Lift (sujeto a elegibilidad)</b></td><td></td><td class="wrap">Impacto de TikTok en recordación y conocimiento (base Q1). Complementa el estudio anual</td></tr>
         <tr><td>Leads de financiamiento</td><td>37k</td><td><b>53k (+44%)</b></td><td>61k (+66%)</td><td class="wrap">CPL, % de leads aprobados (base Q1)</td></tr>
@@ -362,10 +391,52 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
     </table>
   </div>
   <div class="g3" style="margin-top:16px">
-    <div class="card"><h3>Cómo calculamos la meta</h3><p>Por campaña: presupuesto 2027 ÷ costo por persona = personas alcanzadas. Personas × conversión × ticket = ventas.</p></div>
-    <div class="card"><h3>Supuestos</h3><p>Costo de pauta +10%. Las personas que ya alcanzamos rinden igual; las nuevas rinden la mitad (meta) o el 75% (potencial). Alcance único: misma superposición que 2026 (6,8M sobre 14,9M sumados). Más presupuesto también puede subir la frecuencia en vez del alcance.</p></div>
-    <div class="card hl"><h3>Retorno marginal proyectado</h3><p>Unos USD 15,5 en ventas atribuidas por cada dólar adicional. El ROAS total proyectado pasa de 33 a 27. La rentabilidad real se valida con el margen de contribución y un Conversion Lift Studad.</p></div>
+    <div class="card"><h3>Cómo calculamos la meta</h3><p>Por campaña: presupuesto 2027 ÷ costo por persona alcanzada = personas alcanzadas. Las personas que ya alcanzábamos compran igual que en 2026 (compras por persona alcanzada); las nuevas, a la mitad. Así salen ventas, compras y leads. No asumimos que la conversión mejora: si la web mejora con eCommerce, es upside.</p></div>
+    <div class="card"><h3>Supuestos</h3><p>Costo de pauta +10%: inflación de medios proyectada (~4%, WFA) más un margen por escalar a audiencias nuevas y fechas pico. Es conservador: el CPM global de TikTok bajó el último año. Las personas que ya alcanzamos rinden igual; las nuevas rinden la mitad (meta) o el 75% (potencial). Alcance único: misma superposición que 2026 (6,8M sobre 14,9M sumados). Más presupuesto también puede subir la frecuencia en vez del alcance.</p></div>
+    <div class="card hl"><h3>Retorno marginal proyectado</h3><p>Unos USD 15,5 en ventas atribuidas por cada dólar adicional. El ROAS total proyectado pasa de 33 a 27. La rentabilidad real se valida con el margen de contribución y un Conversion Lift Study.</p></div>
   </div>
+</section>
+
+<section id="escenarios">
+  <div class="sec-head">
+    <span class="eyebrow">Escenarios de inversión</span>
+    <h2>Con +50% el plan cumple los 3 objetivos</h2>
+    <p class="muted">Mismo modelo y mismos supuestos; solo cambia la inversión, el mix o el costo de pauta.</p>
+  </div>
+  <div class="tbl">
+    <table class="t-camp">
+      <thead><tr><th>Escenario</th><th>Inversión</th><th>Ventas</th><th>Tienda</th><th>Online</th><th>Leads</th><th>Alcance</th></tr></thead>
+      <tbody>
+        <tr><td>Igual inversión, mix 2026</td><td>USD 395k</td><td>USD 11,9M (−9%)</td><td>−9%</td><td>−9%</td><td>−9%</td><td>−9%</td></tr>
+        <tr><td>Igual inversión, mix 2027</td><td>USD 395k</td><td>USD 12,0M (−9%)</td><td>−10%</td><td>+3%</td><td>+13%</td><td>−14%</td></tr>
+        <tr><td>+25%</td><td>USD 493k</td><td>USD 14,1M (+8%)</td><td>+6%</td><td>+20%</td><td>+29%</td><td>+7%</td></tr>
+        <tr class="hl"><td><b>+50% (plan)</b></td><td><b>USD 592k</b></td><td><b>USD 16,2M (+23%)</b></td><td><b>+22%</b></td><td><b>+37%</b></td><td><b>+44%</b></td><td><b>+29%</b></td></tr>
+        <tr><td>+100% (a validar)</td><td>USD 789k</td><td>USD 19,9M (+52%)</td><td>+50%</td><td>+68%</td><td>+76%</td><td>+72%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="g3" style="margin-top:16px">
+    <div class="card"><h3>Mantener la inversión es vender menos</h3><p>Con el mismo presupuesto y la pauta un 10% más cara, las ventas caen ~9%. Sostener 2026 ya requiere ~10% más de inversión.</p></div>
+    <div class="card"><h3>Redistribuir no alcanza</h3><p>Con la misma inversión y el mix 2027 crecen el online (+3%) y los leads (+13%), pero la tienda cae 10% porque Tiendas pierde presupuesto.</p></div>
+    <div class="card"><h3>+25% crece poco</h3><p>Ventas +8%: el presupuesto extra se va casi todo al catálogo y Tiendas sigue perdiendo inversión.</p></div>
+    <div class="card hl"><h3>+50% cumple los 3 objetivos</h3><p>Tienda +22%, online +37% y alcance +29%. Unos USD 15 en ventas atribuidas por cada dólar adicional.</p></div>
+    <div class="card"><h3>+100%: potencial a validar</h3><p>Da +52%, pero implica llegar a 11,7M de personas y el rendimiento podría caer más de lo proyectado. Se evalúa después de la revisión de Q1.</p></div>
+    <div class="card"><h3>El plan aguanta subas de costo</h3><p>Con +50%: si la pauta no sube, ventas +33% (USD 17,4M); con +10%, +23%; con +20%, igual crecen 16% (USD 15,2M).</p></div>
+  </div>
+  <p class="note" style="margin-top:10px">Proyección propia sobre datos 2026. Supuestos: costo de pauta +10% y audiencias nuevas al 50% del rendimiento actual. Ventas atribuidas, a validar con Conversion Lift Study. Limitación: el 50% es fijo para toda audiencia nueva y no capta la saturación al escalar mucho.</p>
+</section>
+
+<section id="objetivos">
+  <div class="sec-head">
+    <span class="eyebrow">Cierre del plan</span>
+    <h2>De esta manera llegamos a sus 3 objetivos</h2>
+  </div>
+  <div class="g3">
+    <div class="card"><div class="badge">1</div><h3 style="margin-top:10px">Más ventas en tienda física</h3><p><b>USD 11,7M → 14,3M (+22%)</b></p><p>Catálogo que lleva gente a la tienda. Promociones locales por ciudad con creadores. Ventas en tienda medidas cada mes.</p></div>
+    <div class="card"><div class="badge">2</div><h3 style="margin-top:10px">Más ventas online</h3><p><b>USD 1,4M → 1,9M (+37%)</b></p><p>Escalar catálogo hacia la web. Separar clientes nuevos de retargeting. Mejorar la conversión web junto a eCommerce.</p></div>
+    <div class="card"><div class="badge">3</div><h3 style="margin-top:10px">Ser el mejor retailer del país</h3><p><b>6,8M → 8,8M personas (+29%)</b></p><p>Presencia todo el año y TopView en fechas pico. Brand Lift para medir recordación. Complementa el estudio anual de marca.</p></div>
+  </div>
+  <p class="note" style="margin-top:10px">Además: 53k leads de financiamiento y medición de atención al cliente en redes desde Q1. Metas proyectadas, se validan en Q1.</p>
 </section>
 
 <section id="funnel">
@@ -553,6 +624,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
 </div>
 <footer>
   <span>Fuente: datos de la cuenta, últimos 12 meses. Ventas atribuidas por la plataforma.</span>
+  <span>Benchmarks de mercado: Stackmatix 2026, Triple Whale (ago 2025 a jul 2026), Leadgen Economy 2026. Inflación de medios: WFA Media Inflation Outlook.</span>
   <span>Funcionalidades de TikTok verificadas en el Centro de Ayuda de TikTok Ads (octubre 2026). Disponibilidad por país a confirmar con el account manager.</span>
 </footer>
 </main>
@@ -567,7 +639,7 @@ footer{border-top:1px solid var(--line);padding-top:24px;font-size:13px;color:va
     if(scroll)window.scrollTo({top:0});
   }
   tabs.forEach(t=>t.addEventListener('click',()=>{show(t.dataset.view,true);try{history.replaceState(null,'','#'+t.dataset.view)}catch(e){}}));
-  const planIds=['plan','metas','funnel','campanas','creatividad','medicion','calendario','gobierno'];
+  const planIds=['plan','metas','escenarios','objetivos','funnel','campanas','creatividad','medicion','calendario','gobierno'];
   const h=(location.hash||'').slice(1);
   show(planIds.includes(h)?'plan':'reporte',false);
   if(h&&h!=='plan'&&h!=='reporte'){const e=document.getElementById(h);if(e)e.scrollIntoView();}
